@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+      
+        <link rel="stylesheet" href="../css/mStyle.css">
+        <link rel="stylesheet" href="../css/icons.css">
+    </head>
+        <script>
+            // alert("my first javascript!"); 
+         </script>
+        <title>
+            <title>Sign Up Page</title>
+            <link rel="stylesheet" type="text/css" href="./css/icons.css">
+        
+        </title>
+    </head>
+    <body>
+        <div class="row right-content
+        " id="header">
+            <div id="dropdown-menu">
+                <span><i class="ico burger-ico"></i>MENU</span>
+                <div class="dropdown-content  menu-rtl">
+                    <ul>
+                        <a href="contact.html">
+                            <li><i class="ico ico-l user-ico"></i>Home</li>
+                        </a>
+                        <a href="mydigitalcv.html">
+                            <li><i class="ico ico-l wallet-ico"></i>My Digital CV</li>
+                        </a>
+                        <a href="page3.html">
+                            <li><i class="ico ico-l gallery-ico"></i>Gallery</li>
+                        </a>
+                    </ul>
+                </div>
+            </div> 
+        <div class="title">
+            <span>Sign Up</h1>
+        </div>        
+        
+    
+        <div class="paragraph">
+            <form action="BE/login.php" method="POST" name="signup-form">
+                <label for="un">First Name</label>
+                <br>
+                <input type="text" name="firstname">
+                <br>
+                <label for="un">Last Name</label>
+                <br>
+                <input type="text" name="lastname">
+                <br>
+                <label for="un">Email</label>
+                <br>
+                <input type="text" name="email">
+                <br>
+                <label for="pass">Password</label>
+                <br>
+                <input type="password" name="pass">
+                <br>
+                <label for="pass">Confirm Password</label>
+                <br>
+                <input type="password" name="confirmPassword">
+                
+                <br><br>
+                <input type="radio" name="sex" checked id="r-male">
+                <label for="r-male">Male</label>
+                <input type="radio" name="sex" id="r-female">
+                <label for="r-female">Female</label>
+                <br><br>
+                <input type="radio" name="ageGroup" checked id="r-above18">
+                <label for="r-above18">18 years old and above</label>
+                <input type="radio" name="ageGroup" id="r-below18">
+                <label for="r-below18">less than 18 years old</label>
+                <br>
+
+                <select name="language">
+                    <option value="-1">--</option>
+                    <option value="en">English</option>
+                    <option value="ar">Arabic</option>
+                </select>
+                <br>
+
+                <input type="checkbox" name="cbcaptcha" id="cbcaptcha">
+                <label for="cbcaptcha">I am human</label>
+                <br>
+                <input type="button" value="Sign Up" onclick="SignUp()">
+                <input type="button" value="Cancel" onclick="ClearForm()">
+            </form>
+        </div>
+    
+<script>
+    function SignUp(){
+        var mForm=document.querySelector("form[name='signup-form']");
+        var fn=mForm.elements["firstname"].value;
+        var ln=mForm.elements["lasttname"].value;
+        var email=mForm.elements["email"].value;
+        var pass=mForm.elements["pass"].value;
+        var confPass=mForm.elements["confpass"].value;
+        
+        console.log(fn);
+    }
+    function ClearForm(){
+        
+    }
+</script>
+</body>
+</html>
