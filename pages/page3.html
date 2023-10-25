@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="../css/mStyle.css">
+    <link rel="stylesheet" href="../css/icons.css">
+    
+    <div class="row right-content
+    " id="header">
+        <div id="dropdown-menu">
+            <span><i class="ico burger-ico"></i>MENU</span>
+            <div class="dropdown-content  menu-rtl">
+                <ul>
+                    <a href="contact.html">
+                        <li><i class="ico ico-l user-ico"></i>Home</li>
+                    </a>
+                    <a href="mydigitalcv.html">
+                        <li><i class="ico ico-l wallet-ico"></i>My Digital CV</li>
+                    </a>
+                    <a href="page3.html">
+                        <li><i class="ico ico-l gallery-ico"></i>Gallery</li>
+                    </a>
+                </ul>
+            </div>
+        </div> 
+    <style>
+#header{
+    background: rgb(76, 5, 126);
+    height: 40px;
+   
+    top: 0;
+    margin-top: 0px;
+}
+
+
+#dropdown-menu {
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 100px;
+    vertical-align: middle;
+    color: white;
+    background: rgb(73, 2, 91);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+   margin-top: -10px;
+   margin-right: 10px;
+    position: absolute;
+    right:0;
+}
+    
+
+.right-content{
+    text-align: right;
+}
+.dropdown-content{
+    cursor: pointer;
+    display: none;
+    background: rgb(37, 2, 61);
+   margin-bottom: 50px;;
+    
+    z-index: 1;
+    position: relative;
+    font-weight: normal;
+    font-size: medium;
+    height: 200px;
+    width: 5450px;
+    text-align: center;
+   
+ 
+}
+.dropdown-content ul {
+    margin: 0;
+    padding: 0;
+  
+}
+
+.dropdown-content li {
+    text-align: right;
+    margin-right: 10px;
+    width: 100px;
+
+
+}
+
+#header {
+    background: rgb(76, 5, 126);
+    height: 40px;
+    top: 0;
+    margin-top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+
+#dropdown-menu li{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    list-style-type: none;
+}
+
+#dropdown-menu ul{
+    margin: 0;
+    padding: 0;
+}
+
+#dropdown-menu:hover .dropdown-content {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 200px;
+}
+/*
+#dropdown-menu li:hover{
+    background: #8f57f0;
+}
+
+    .mposter {
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: fill;
+    } */
+
+.Gallery {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.framepic {
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.framepic img {
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+   
+   width:400px;
+height: 500px;}
+
+.framepic.clicked .lightbox {
+    display: flex;
+}
+.Gallery{
+    margin-top: 20px;
+    padding: 20px;
+    margin-top: 50px;
+
+}
+ .framepic {
+    width: 300px;
+    height: 400px;
+position: relative;
+object-fit: fill;
+text-align: center;
+
+cursor: pointer;
+ }
+ .mposter {
+    width: 400px;
+    height: 450px;
+    border-radius: 8px;
+    object-fit: fill;
+    border: none; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    cursor: pointer;
+  
+    border: 2px;
+    border-color: black;
+
+}
+.Pic {
+    
+    width: 80%; 
+   height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+    z-index: 9999;
+}
+
+.framepic:hover .Pic {
+    opacity: 1;
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+   
+    <div class="Gallery">
+        <div class="framepic">
+            <img src="../images/mposter2.png" class="mposter">
+            <div class="lightbox">
+                <img src="../images/mposter2.png">
+            </div>
+        </div>
+        <div class="framepic">
+            <a href="#">
+                <img src="../images/mposter1.png" class="mposter">
+                <div class="lightbox">
+                    <img src="../images/mposter1.png">
+                </div>
+            </a>
+        </div>
+        
+        <div class="framepic">
+            <a href="#">
+                <img src="../images/mposter4.png" class="mposter">
+                <div class="lightbox">
+                    <img src="../images/mposter4.png">
+                </div>
+            </a>
+        </div>
+        
+    </div>
+    <script>
+        document.querySelectorAll('.framepic').forEach(item => {
+            item.addEventListener('click', event => {
+                item.classList.toggle('clicked');
+            })
+        });
+    </script>
+</body>
+</html>
