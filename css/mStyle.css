@@ -51,7 +51,7 @@ p{
 
 .row{
     display: left;
-    position: fixed;
+  
    
 }
 
@@ -227,10 +227,10 @@ input[type="submit"]:hover {
   
   }
   div{
-    font-size: 18px;
+  
     
     font-family: 'Times New Roman', Times, serif;
-    text-align: center;
+    text-align: left;
   
    
    color: black; 
@@ -268,6 +268,209 @@ cursor: pointer;
 .framepic:hover .Pic {
     opacity: 1;
 }
+
+.Gallery {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.framepic2 {
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.framepic2 img {
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+   
+   width:400px;
+height: 500px;}
+
+.framepic2.clicked .lightbox {
+    display: flex;
+}
 .Gallery{
     margin-top: 20px;
+    padding: 20px;
+    margin-top: 50px;
+
 }
+ .framepic2 {
+    width: 300px;
+    height: 400px;
+position: relative;
+object-fit: fill;
+text-align: center;
+
+cursor: pointer;
+ }
+ .mposter {
+    width: 400px;
+    height: 450px;
+    border-radius: 8px;
+    object-fit: fill;
+    border: none; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    cursor: pointer;
+  
+    border: 2px;
+    border-color: black;
+
+}
+.Pic {
+    
+    width: 80%; 
+   height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none;
+    z-index: 9999;
+}
+
+.framepic2:hover .Pic {
+    opacity: 1;
+    display: block;
+}
+
+.bio { 
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+    height: 100px;
+   width: 40%;
+   color: black; 
+   
+  }
+  
+  .bio h1 {
+    color: black ;
+    font-size: 22px;
+  
+    font-weight: bold;
+   margin-left: 10px;
+    
+    
+    
+  margin-top: 10px;
+  }
+  .bio p, .soft-skills,.education, .education p {
+    list-style-type: disc;
+    
+   
+    line-height: 1.6;
+    margin-left: 10px;
+    color: black; 
+    
+  width:400px ;
+ font-family: 'Times New Roman', Times, serif;
+  }
+  
+
+  
+  
+
+ 
+  .log {
+    float: right;
+    left: 370px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 1%;
+    height: 215px;
+    width: 175px;
+    
+}
+  
+  
+  
+  
+  .left-section {
+    width: 35%;
+    float: left;
+   
+
+    padding: 0px;
+    border: 2px solid rgb(0, 0, 0);
+    box-sizing: 1px;
+  
+    
+  }
+  .horizontal{
+    color: black;
+    border-top: 2px solid black;
+    
+  }
+  .right-section {
+    border-top: 2px solid black;
+    width: 65%;
+    float: left;
+    background-color: 89006bd2;
+    
+ 
+    box-sizing: 1px;
+    left:10px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+  }
+  
+ 
+  .content{
+    margin-top: 48px;
+    margin-left: 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .my-img{
+    width: 300px;
+    border-radius: 8px;
+  
+  }
+  
+  .img-frame{
+    border-radius: 10px;
+    border: 1px solid grey;
+    
+    
+  }
+  .about{
+    font-size: 42px;
+  }
+  
+
+  
+
+  
+  .container {
+    display: flex;
+   
+   
+   font-family: 'Times New Roman', Times, serif;
+ 
+   
+  }
+  
+
+  
+  
