@@ -4,87 +4,67 @@
     <head>
       
         <link rel="stylesheet" href="../css/mStyle.css">
-        <link rel="stylesheet" href="../css/icons.css">
-    </head>
+     
         <script>
             // alert("my first javascript!"); 
          </script>
-        <title>
-            <title>Sign Up Page</title>
-            <link rel="stylesheet" type="text/css" href="./css/icons.css">
-        
-        </title>
-    </head>
-    <body>
-        <div class="row right-content
-        " id="header">
-            <div id="dropdown-menu">
-                <span><i class="ico burger-ico"></i>MENU</span>
-                <div class="dropdown-content  menu-rtl">
-                    <ul>
-                        <a href="contact.html">
-                            <li><i class="ico ico-l user-ico"></i>Home</li>
-                        </a>
-                        <a href="mydigitalcv.html">
-                            <li><i class="ico ico-l wallet-ico"></i>My Digital CV</li>
-                        </a>
-                        <a href="page3.html">
-                            <li><i class="ico ico-l gallery-ico"></i>Gallery</li>
-                        </a>
-                    </ul>
-                </div>
-            </div> 
+      <div class=""row header">
+        <div class="row header " >
+            
+        </div>
         <div class="title">
             <span>Sign Up</h1>
         </div>        
         
     
-        <div class="paragraph">
-            <form action="BE/login.php" method="POST" name="signup-form">
+        <div class="paragraph" style="border:0;">
+            <form action="BE/signup.php" method="POST" name="signup-form">
                 <label for="un">First Name</label>
                 <br>
-                <input type="text" name="firstname">
+                <input type="text" name="firstname" class="txtfield">
                 <br>
                 <label for="un">Last Name</label>
                 <br>
-                <input type="text" name="lastname">
+                <input type="text" name="lastname" class="txtfield">
                 <br>
                 <label for="un">Email</label>
                 <br>
-                <input type="text" name="email">
+                <input type="text" name="email" class="txtfield">
                 <br>
                 <label for="pass">Password</label>
                 <br>
-                <input type="password" name="pass">
+                <input type="password" name="pass" class="txtfield">
                 <br>
                 <label for="pass">Confirm Password</label>
                 <br>
-                <input type="password" name="confirmPassword">
+                <input type="password" name="confirmPassword" class="txtfield">
                 
                 <br><br>
-                <input type="radio" name="sex" checked id="r-male">
+                <input type="radio" name="sex" checked id="r-male" value="m">
                 <label for="r-male">Male</label>
-                <input type="radio" name="sex" id="r-female">
+                <input type="radio" name="sex" id="r-female" value="f">
                 <label for="r-female">Female</label>
                 <br><br>
-                <input type="radio" name="ageGroup" checked id="r-above18">
+                <input type="radio" name="ageGroup" checked id="r-above18" value="above">
                 <label for="r-above18">18 years old and above</label>
-                <input type="radio" name="ageGroup" id="r-below18">
+                <input type="radio" name="ageGroup" id="r-below18" value="below">
                 <label for="r-below18">less than 18 years old</label>
                 <br>
-
-                <select name="language">
+                <br>
+                <label for="sel-language">Language</label>
+                <select name="language" id="sel-language" class="mSelect">
                     <option value="-1">--</option>
                     <option value="en">English</option>
                     <option value="ar">Arabic</option>
                 </select>
                 <br>
-
+                <br>
                 <input type="checkbox" name="cbcaptcha" id="cbcaptcha">
                 <label for="cbcaptcha">I am human</label>
                 <br>
-                <input type="button" value="Sign Up" onclick="SignUp()">
-                <input type="button" value="Cancel" onclick="ClearForm()">
+                <br>
+                <input type="button" value="Sign Up" class="mButton" onclick="SignUp()">
+                <input type="button" value="Cancel" class="mButton" onclick="ClearForm()">
             </form>
         </div>
     
@@ -92,16 +72,42 @@
     function SignUp(){
         var mForm=document.querySelector("form[name='signup-form']");
         var fn=mForm.elements["firstname"].value;
-        var ln=mForm.elements["lasttname"].value;
+        var ln=mForm.elements["lastname"].value;
         var email=mForm.elements["email"].value;
         var pass=mForm.elements["pass"].value;
-        var confPass=mForm.elements["confpass"].value;
-        
-        console.log(fn);
+        var confPass=mForm.elements["confirmPassword"].value;
+        var sex=mForm.elements["sex"].value;
+        var ageGroup=mForm.elements["ageGroup"].value;
+        var language=mForm.elements["language"].value;
+        var captcha=mForm.elements["cbcaptcha"].checked;
+        console.log("fn:"+fn);
+        console.log("ln:"+ln);
+        console.log("email:"+email);
+        console.log("pass:"+pass);
+        console.log("confPass:"+confPass);
+        console.log("sex:"+sex);
+        console.log("ageGroup:"+ageGroup);
+        console.log("language:"+language);
+        console.log("captcha:"+captcha);
+
+        if ((pass!=confPass)||(pass==""))
+            alert("Passwords must be equal.");
+        else
+            mForm.submit();        
     }
     function ClearForm(){
-        
+        var mForm=document.querySelector("form[name='signup-form']");
+        mForm.elements["firstname"].value="";
+        mForm.elements["lastname"].value="";
+        mForm.elements["email"].value="";
+        mForm.elements["pass"].value="";
+        mForm.elements["confirmPassword"].value="";
+        mForm.elements["sex"].value="m";
+        mForm.elements["ageGroup"].value="above";
+        mForm.elements["language"].value=-1;
+        mForm.elements["cbcaptcha"].checked=false;
     }
 </script>
 </body>
+
 </html>
