@@ -27,7 +27,8 @@ session_destroy();
 
     <div class="container">
     
-        <form action="be/login.php" method="POST" id="login-form">
+                <form action="BackEnd/login.php" method="POST" id="login-form">
+
             <label for="un">Username</label>
             <br>
             <input type="text" name="username" id="un" class="txtfield" onkeypress="checkEnter(event, 'pass')">
