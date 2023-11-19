@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>  .title{
+        padding-top: 7%;
+    }
+    h1{
+        
+        font-weight: bold;
+        color: #ad1f95;
+    }</style>
+    <link rel="stylesheet" href="../css/mStyle.css">
+    <link rel="stylesheet" href="../css/icons.css">
+    <script>
+        function SignUp() {
+            var mForm = document.forms['signup-form'];
+            var userData = {
+                username: mForm.elements['username'].value,
+                fullname: mForm.elements['fullname'].value,
+                email: mForm.elements['email'].value,
+                pass: mForm.elements['pass'].value,
+                confirmPassword: mForm.elements['confirmPassword'].value,
+                birthdate: mForm.elements['birthdate'].value,
+                sex: document.querySelector('input[name="sex"]:checked').value,
+            };
+            
+            if (userData.pass !== userData.confirmPassword || userData.pass === '') {
+                alert('Passwords must match and not be empty.');
+                return;
+            }
+
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'signup.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert('User registered successfully!');
+                        mForm.reset();
+                    } else {
+                        alert('Error: Unable to register user.');
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(userData));
+        }
+    </script>
+</head>
+<body>
+    <div class="paragraph">
+        <form action="../BackEnd/signup.php" method="POST" name="signup-form">
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="username"><br>
+
+            <label for="fullname">Full Name</label><br>
+            <input type="text" name="fullname" id="fullname"><br>
+
+            <label for="email">Email</label><br>
+            <input type="text" name="email" id="email"><br>
+
+            <label for="pass">Password</label><br>
+            <input type="password" name="pass" id="pass"><br>
+
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" name="confirmPassword" id="confirmPassword"><br>
+            
+            <label for="birthdate">Birthdate</label><br>
+            <input type="date" name="birthdate" id="birthdate"><br>
+            
+            <label for="sex">Sex</label><br>
+            <input type="radio" name="sex" value="male" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="sex" value="female" id="female">
+            <label for="female">Female</label><br>
+
+            <br><br>
+            <input type="button" value="Sign Up" onclick="SignUp()">
+            <input type="reset" value="Cancel">
+        </form>
+    </div>
+</body>
+</html>
