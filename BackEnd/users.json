@@ -1,0 +1,44 @@
+[
+    {
+        "fullname": "Sarah Johnson",
+        "username": "sarah.j",
+        "password": "pass123",
+        "sex": "f",
+        "birthdate": "1998-09-15"
+    },
+    {
+        "fullname": "Emma Thompson",
+        "username": "emma.t",
+        "password": "emma567",
+        "sex": "f",
+        "birthdate": "2000-05-21"
+    },
+    {
+        "fullname": "Michael Rodriguez",
+        "username": "mike.r",
+        "password": "mikePass",
+        "sex": "m",
+        "birthdate": "1995-11-30"
+    },
+    {
+        "fullname": "Adam Smith",
+        "username": "adam.s",
+        "password": "adam1234",
+        "sex": "m",
+        "birthdate": "1992-07-18"
+    },
+    {
+        "fullname": "Olivia Brown",
+        "username": "olivia.b",
+        "password": "oliviaPass",
+        "sex": "f",
+        "birthdate": "2002-03-05"
+    },
+    {
+        "fullname": "William Clark",
+        "username": "william.c",
+        "password": "willPass",
+        "sex": "m",
+        "birthdate": "1999-12-10"
+    }
+]
