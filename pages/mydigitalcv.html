@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    session_start();
+    if (!isset($_SESSION["username"])){
+        header("location:../index.php");
+    }
+?>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -22,6 +27,12 @@
                         <li>Gallery<i class="ico ico-l gallery-ico"></i></li>
                     </a>
                 </ul>
+                <?php
+                if (isset($_SESSION["username"])) {
+                    echo '<span style="margin-left: 0%; padding-bottom: 0%; margin-bottom: 0%; color:#f4f0f0;">Welcome, ' . $_SESSION["fullname"] . '! ';
+                    echo '<br><a href="../be/logout.php" style="text-decoration: none; color: #f4f0f0">Logout <i class="fas fa-sign-out-alt"></i></a></span>';
+                }
+                ?>
             </div>
         </div>
     </div>
