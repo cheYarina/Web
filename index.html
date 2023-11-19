@@ -1,113 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-    <head>
-      
-        <link rel="stylesheet" href="../css/mStyle.css">
-     
-        <script>
-            // alert("my first javascript!"); 
-         </script>
-      <div class=""row header">
-        <div class="row header " >
-            
-        </div>
-        <div class="title">
-            <span>Sign Up</h1>
-        </div>        
-        
-    
-        <div class="paragraph" style="border:0;">
-            <form action="BE/signup.php" method="POST" name="signup-form">
-                <label for="un">First Name</label>
-                <br>
-                <input type="text" name="firstname" class="txtfield">
-                <br>
-                <label for="un">Last Name</label>
-                <br>
-                <input type="text" name="lastname" class="txtfield">
-                <br>
-                <label for="un">Email</label>
-                <br>
-                <input type="text" name="email" class="txtfield">
-                <br>
-                <label for="pass">Password</label>
-                <br>
-                <input type="password" name="pass" class="txtfield">
-                <br>
-                <label for="pass">Confirm Password</label>
-                <br>
-                <input type="password" name="confirmPassword" class="txtfield">
-                
-                <br><br>
-                <input type="radio" name="sex" checked id="r-male" value="m">
-                <label for="r-male">Male</label>
-                <input type="radio" name="sex" id="r-female" value="f">
-                <label for="r-female">Female</label>
-                <br><br>
-                <input type="radio" name="ageGroup" checked id="r-above18" value="above">
-                <label for="r-above18">18 years old and above</label>
-                <input type="radio" name="ageGroup" id="r-below18" value="below">
-                <label for="r-below18">less than 18 years old</label>
-                <br>
-                <br>
-                <label for="sel-language">Language</label>
-                <select name="language" id="sel-language" class="mSelect">
-                    <option value="-1">--</option>
-                    <option value="en">English</option>
-                    <option value="ar">Arabic</option>
-                </select>
-                <br>
-                <br>
-                <input type="checkbox" name="cbcaptcha" id="cbcaptcha">
-                <label for="cbcaptcha">I am human</label>
-                <br>
-                <br>
-                <input type="button" value="Sign Up" class="mButton" onclick="SignUp()">
-                <input type="button" value="Cancel" class="mButton" onclick="ClearForm()">
-            </form>
-        </div>
-    
-<script>
-    function SignUp(){
-        var mForm=document.querySelector("form[name='signup-form']");
-        var fn=mForm.elements["firstname"].value;
-        var ln=mForm.elements["lastname"].value;
-        var email=mForm.elements["email"].value;
-        var pass=mForm.elements["pass"].value;
-        var confPass=mForm.elements["confirmPassword"].value;
-        var sex=mForm.elements["sex"].value;
-        var ageGroup=mForm.elements["ageGroup"].value;
-        var language=mForm.elements["language"].value;
-        var captcha=mForm.elements["cbcaptcha"].checked;
-        console.log("fn:"+fn);
-        console.log("ln:"+ln);
-        console.log("email:"+email);
-        console.log("pass:"+pass);
-        console.log("confPass:"+confPass);
-        console.log("sex:"+sex);
-        console.log("ageGroup:"+ageGroup);
-        console.log("language:"+language);
-        console.log("captcha:"+captcha);
+<?php 
+session_start();
+session_unset();
+session_destroy();
+?>
 
-        if ((pass!=confPass)||(pass==""))
-            alert("Passwords must be equal.");
-        else
-            mForm.submit();        
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../css/mStyle.css">
+   
+</head>
+<body>
+    <div class="row right-content" id="header">
+<nav class="navbar">
+        <div class="left-content">
+            <span class="name">Yara Malaeb</span>
+        </div>
+</nav>
+    <div class="title">
+            <h1 style="text-align: center;">Welcome to my Portfolio!</h1>
+            <h2 style="text-align: center;">Log In Here</h1>
+        </div>
+        <div class="row right-content" id="header" style="display:none;">
+        <div class="contact"></div>
+    </div>
+
+    <div class="container">
+    
+        <form action="be/login.php" method="POST" id="login-form">
+            <label for="un">Username</label>
+            <br>
+            <input type="text" name="username" id="un" class="txtfield" onkeypress="checkEnter(event, 'pass')">
+            <br>
+            <label for="pass">Password</label>
+            <br>
+            <input type="password" name="password" id="pass" class="txtfield" onkeypress="checkEnter(event, 'login-form')">
+            <br>
+            <br>
+            <input type="button" value="Login" onclick="login()" class="mButton">
+            <input type="button" value="Cancel" onclick="ClearForm()" class="mButton">
+        </form>
+
+
+    </div>
+    <h1 style="text-align: center;font-size:16px">Don't have an account?</h1>
+
+  
+    <a style="font-weight: bold; margin-right: 48%;"  href="pages/signup.html">Sign Up here!</a>
+ 
+    <style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    .title{
+                padding-top: 7%;
+            }
+            h1{
+                font-weight: bold;
+                color: #4f1d47;
+            }
+            .txtfield{
+                color: #870073;
+                border-radius: 7%;
+                border: 2px solid #f4f0f0;
+            }
+            label{
+                color:#4f1d47;
+                font-weight: bold;
+            }
+            .mButton{
+                background-color:#870073 ;
+                color: #f4f0f0;
+                padding: 14px 20px;
+                border: none;
+                cursor: pointer;
+                
+                text-align: center;
+                }
+      }
+     
+</style>
+    <script>
+        function login(event) {
+            event.preventDefault(); 
+    var un = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+        if ((un=="")||(pass=="")){
+            alert("You must fill in the username and the password!");
+        }else{
+            document.getElementById("login-form").submit();
+        }
+
     }
     function ClearForm(){
-        var mForm=document.querySelector("form[name='signup-form']");
-        mForm.elements["firstname"].value="";
-        mForm.elements["lastname"].value="";
-        mForm.elements["email"].value="";
-        mForm.elements["pass"].value="";
-        mForm.elements["confirmPassword"].value="";
-        mForm.elements["sex"].value="m";
-        mForm.elements["ageGroup"].value="above";
-        mForm.elements["language"].value=-1;
-        mForm.elements["cbcaptcha"].checked=false;
+        document.getElementById("un").value="";
+        document.getElementById("pass").value="";
     }
-</script>
+    function checkEnter(event, nextField) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById(nextField).focus();
+
+            if (nextField === 'login-form') {
+                login();
+            }
+        }
+    }
+
+
+document.querySelector("form").addEventListener("submit", login);
+
+    </script>
 </body>
 
 </html>
