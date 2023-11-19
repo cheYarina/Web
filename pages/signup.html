@@ -16,38 +16,38 @@
     <link rel="stylesheet" href="../css/icons.css">
     <script>
         function SignUp() {
-            var mForm = document.forms['signup-form'];
-            var userData = {
-                username: mForm.elements['username'].value,
-                fullname: mForm.elements['fullname'].value,
-                email: mForm.elements['email'].value,
-                pass: mForm.elements['pass'].value,
-                confirmPassword: mForm.elements['confirmPassword'].value,
-                birthdate: mForm.elements['birthdate'].value,
-                sex: document.querySelector('input[name="sex"]:checked').value,
-            };
+            var mForm=document.querySelector("form[name='signup-form']");
+        var fullname=mForm.elements["fullname"].value;
+        var username=mForm.elements["username"].value;
+        var pass=mForm.elements["pass"].value;
+        var confPass=mForm.elements["confirmPassword"].value;
+        var sex=mForm.elements["gender"].value;
+        var birthdate=mForm.elements["birthdate"].value;
+       
+        console.log("fullname:"+fullname);
+        console.log("username:"+username);
+        console.log("pass:"+pass);
+        console.log("gender:"+sex);
+        console.log("birthdate:"+birthdate);
+            }
             
-            if (userData.pass !== userData.confirmPassword || userData.pass === '') {
+            if (pass !== confirmPass || pass === '') {
                 alert('Passwords must match and not be empty.');
                 return;
             }
-
-            
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'signup.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        alert('User registered successfully!');
-                        mForm.reset();
-                    } else {
-                        alert('Error: Unable to register user.');
-                    }
-                }
-            };
-            xhr.send(JSON.stringify(userData));
-        }
+else{
+mForm.submit();
+}    function ClearForm(){
+        var mForm=document.querySelector("form[name='signup-form']");
+        mForm.elements["fullname"].value="";
+        mForm.elements["username"].value="";
+        mForm.elements["pass"].value="";
+        mForm.elements["confirmPassword"].value="";
+        mForm.elements["gender"].value="m";
+        mForm.elements["birthdate"].value=null;
+      
+    }
+          
     </script>
 </head>
 <body>
