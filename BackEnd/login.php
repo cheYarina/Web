@@ -21,6 +21,6 @@ if ($loggedIn) {
         $_SESSION["fullname"]=$user["fullname"];
     header("location:../pages/mydigitalcv.php");
 } else {
-    header("location:../index.html");
+    header("location:../index.php");
 }
 ?>
