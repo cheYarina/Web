@@ -1,7 +1,0 @@
-{
-    "images": [
-        {"id": 1, "url": "../images/mposter2.png", "alt": "pic1"},
-        {"id": 2, "url": "../images/mposter1.png", "alt": "pic2"},
-        {"id": 3, "url": "../images/mposter4.png", "alt": "pic3"}
-    ]
-}
